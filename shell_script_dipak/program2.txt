@@ -1,0 +1,368 @@
+echo "think of a number between 1 and 100"
+
+leftValue=0
+rightValue=100
+
+while [ $((rightValue-leftValue)) -gt 0 ]
+
+do
+ midValue=$(((leftValue+rightValue)/2))
+
+ read -p "is ${midValue} your number?" ans
+
+ if [ "${ans}" == "y" ]
+ then
+  echo "your number is ${midValue}"
+  break
+ fi
+
+ read -p "is your number between ${leftValue} and ${midValue} ?" userIp
+
+ case "$userIp" in
+  y) rightValue=$midValue ;;
+
+  n) leftValue=$midValue ;;
+
+ esac
+
+done
+
+---------------------------------
+balance=100
+lossCount=0
+winCount=0
+noOfBets=0
+
+while [ $balance -gt 0 -a $balance -lt 200 ]
+do
+ bet=$((RANDOM%2))
+
+ case $bet in
+ 0) ((lossCount++)); ((balance--)) ;;
+ 1) ((winCount++)); ((balance++)) ;;
+ esac
+
+ ((noOfBets++))
+done
+
+echo "Game ended with balance - ${balance} , winCount - ${winCount} , loss count - ${lossCount} , total - ${noOfBets}"
+----------------------------------------
+function celciusToFarh() {
+ echo $1 | awk '{print ($1*9/5)+32}'
+}
+
+read -p "enter the temperature unit " u
+read -p "enter the temperature value " t
+
+case $u in
+ c) if [ $t -lt 0 -o $t -gt 100 ]
+     then
+       echo "The temperature given is not in range"
+    else
+     temp=$( celciusToFarh $t )
+     echo "${temp} is your temperature in F"
+    fi;;
+
+ *) echo "please provide proper input"
+esac
+do for farenhite
+------------------------------------------------
+
+
+
+
+function isPrime(){
+ num=$1
+ #sqrt2=`awk "BEGIN{ print(sqrt($1)) }"`
+ #i=${sqrt2%%.*}+1
+ isItPrime=1
+ for (( j=2; j<=$((num/2)); j++))
+  do
+    rem=$((num%j))
+    if [ $rem -eq 0 ]
+      then
+        isItPrime=0
+         break
+    fi
+  done
+ echo $isItPrime
+
+}
+
+
+function isPalindrome(){
+num=$1
+temp=$num
+reverse=0
+while [ $num -gt 0 ]
+do
+ s=$((num%10))
+ reverse=$((reverse*10+s))
+ num=$((num/10))
+done
+if [ $temp -eq $reverse ]
+then
+ echo "It is a Palindrom"
+else
+ echo "It is not a Palindrome"
+fi
+}
+
+read -p "ENter the number to check if it is prime palindrome " n
+
+isPrime=$( isPrime $n )
+
+if [ $isPrime -eq 1 ]
+then
+ echo "The number is prime"
+ palin=$(isPalindrome $n)
+ echo $palin
+else
+ echo "The number is not prime"
+fi
+
+
+
+---------------------------------------------------------------------
+my programs 
+
+result=$((RANDOM%2))
+if [[ ${result} -eq 0 ]];
+then
+echo heads
+elif [[ ${result} -eq 1 ]];
+then
+echo tails
+fi
+
+-----------------------------------------------
+balance=100
+lossCount=0
+winCount=0
+noOfBets=0
+
+while [ $balance -gt 0 -a $balance -lt 200 ]
+do
+ bet=$((RANDOM%2))
+
+ case $bet in
+ 0) ((lossCount++)); ((balance--)) ;;
+ 1) ((winCount++)); ((balance++)) ;;
+ esac
+
+ ((noOfBets++))
+done
+
+echo "Game ended with balance - ${balance} , winCount - ${winCount} , loss count - ${lossCount} , total - ${noOfBets}"
+---------------------------------------------------------------------
+echo "think of a number between 1 and 100"
+
+leftValue=0
+rightValue=100
+
+while [ $((rightValue-leftValue)) -gt 0 ]
+
+do
+ midValue=$(((leftValue+rightValue)/2))
+
+ read -p "is ${midValue} your number?" ans
+
+ if [ "${ans}" == "y" ]
+ then
+  echo "your number is ${midValue}"
+  break
+ fi
+
+ read -p "is your number between ${leftValue} and ${midValue} ?" userIp
+
+ case "$userIp" in
+  y) rightValue=$midValue ;;
+
+  n) leftValue=$midValue ;;
+
+ esac
+
+done
+
+
+---------------------------------------------------------------
+
+
+
+
+function isPrime(){
+ num=$1
+ #sqrt2=`awk "BEGIN{ print(sqrt($1)) }"`
+ #i=${sqrt2%%.*}+1
+ isItPrime=1
+ for (( j=2; j<=$((num/2)); j++))
+  do
+    rem=$((num%j))
+    if [ $rem -eq 0 ]
+      then
+        isItPrime=0
+         break
+    fi
+  done
+ echo $isItPrime
+
+}
+
+
+function isPalindrome(){
+num=$1
+temp=$num
+reverse=0
+while [ $num -gt 0 ]
+do
+ s=$((num%10))
+ reverse=$((reverse*10+s))
+ num=$((num/10))
+done
+if [ $temp -eq $reverse ]
+then
+ echo "It is a Palindrom"
+else
+ echo "It is not a Palindrome"
+fi
+}
+
+read -p "ENter the number to check if it is prime palindrome " n
+
+isPrime=$( isPrime $n )
+
+if [ $isPrime -eq 1 ]
+then
+ echo "The number is prime"
+ palin=$(isPalindrome $n)
+ echo $palin
+else
+ echo "The number is not prime"
+fi
+-------------------------------------------------------------------------
+arr=unset
+greatest=100
+secondGreatest=100
+smallest=999
+secondSmallest=999
+
+
+for ((i=0;i<10;i++))
+do
+
+ num=$((RANDOM%900+100))
+ echo $num
+ arr[$i]=$num
+done
+
+for num in ${arr[@]}
+do
+         if [ $num -ge $greatest ]
+           then
+            secondGreatest=$greatest
+--------------------------------------------------------------------
+declare -A diceCount
+diceCount[1]=0
+diceCount[2]=0
+diceCount[3]=0
+diceCount[4]=0
+diceCount[5]=0
+diceCount[6]=0
+
+i=0
+while [[ ${diceCount[1]} -lt 10 && ${diceCount[2]} -lt 10 && ${diceCount[3]} -lt 10 && ${diceCount[4]} -lt 10 && ${diceCount[5]} -lt 10 && ${diceCount[6]} -lt 10 ]]
+do
+
+  diceVal=$((RANDOM%6+1))
+
+  DCVal=${diceCount[$diceVal]}
+
+  diceCount[$diceVal]=$((DCVal+1))
+
+  echo "I" $i
+  echo ${!diceCount[@]}
+  echo ${diceCount[@]}
+  ((i++))
+
+done
+
+
+greatest=0
+least=10
+
+greatestIndex=unset
+leastIndex=unset
+
+for((i=1;i<=6;i++))
+do
+
+  if [ ${diceCount[$i]} -gt $greatest ]
+  then
+   greatest=${diceCount[$i]}
+   greatestIndex=$i
+  fi
+
+  if [ ${diceCount[$i]} -lt $least ]
+   then
+    least=${diceCount[$i]}
+    leastIndex=$i
+  fi
+
+done
+
+echo $greatestIndex "is the dice value rolled max no of times"
+echo $leastIndex "is the dice value rolled least no of times"
+-------------------------------------------------------------------
+declare -A birthCount
+
+#The index 0 corresponds to jan-92, 1 to feb-92 on till dec-93
+
+declare -A monthYrDict
+
+
+
+
+for((i=0;i<24;i++))
+do
+ birthCount[$i]=0
+done
+
+
+for((i=0;i<50;i++))
+do
+
+bornOn=$((RANDOM%24))
+
+echo $bornOn
+
+#echo ${birthCount[@]}
+#echo ${!birthCount[@]}
+
+
+currVal=${birthCount[$bornOn]}
+currVal=$((currVal+1))
+birthCount[$bornOn]=$currVal
+
+done
+
+echo ${birthCount[@]}
+echo ${!birthCount[@]}
+
+
+for((i=0;i<24;i++))
+do
+ echo "no of people born in " $i "month and year is" ${birthCount[$i]}
+done
+
+for((i=0;i<12;i++))
+do
+j=$((i+12))
+echo "no of people born in " $i "month is" $((${birthCount[$i]}+${birthCount[$j]}))
+
+done
+
+
+
+
+
+

@@ -1,0 +1,154 @@
+ nano 5.9         arraytest.sh
+counter=0
+Fruits[((counter++))]="Apple"
+Fruits[((counter++))]="banana"
+Fruits[((counter++))]="orange"
+echo ${Fruits[@]}
+echo ${!Fruits[@]}
+--------------------------
+declare -A sounds
+sounds[dog]="bark"
+sounds[cow]="moo"
+sounds[bird]="tweet"
+sounds[wolf]="howl"
+echo "dog sound " ${sounds[dog]}
+echo "all animal sound " ${!sounds[@]}
+echo "number of animals " ${#sounds[@]}
+unset sounds[dog]
+-----------------------------------------
+perHourSalary=20;
+workingHour=0;
+totalSalary=0;
+
+for ((day=1; day<=20 ;day++))
+do
+        isPresent=$((RANDOM%3));
+        case $isPresent in
+                0)
+                #echo "Employee is absent";
+                workingHour=0;
+                ;;
+
+                1)
+                #echo "Employee is present";
+                workingHour=8;
+                ;;
+
+                2)
+                #echo "Employee is working as part time";
+                workingHour=4;
+                ;;
+        esac
+        salary=$(($perHourSalary * $workingHour));
+        totalSalary=$(($totalSalary + $salary));
+done
+
+echo "Employee has earned $totalSalary $ in a month";
+---------------------------------------------------------
+isPresent=0
+randomCheck=$((RANDOM%2));
+if [ $isPresent -eq $randomCheck ];
+then
+empRatePerHr=20;
+empHrs=8;
+salary=$(($emphrs*$empRatePerHr));
+else
+salary=0;
+fi
+---------------------------------
+var1=10
+var2=10
+if [ $var2 -gt $var1 ]
+then
+ echo "$var2 is greater than $var1"
+elif [ $var2 -eq  $var1 ]
+then
+echo "variables are equal"
+else
+echo "$var2 is less than $var1"
+fi
+------------------------------------
+isPresent=1;
+randomCheck=$((RANDOM%2));
+if [ $isPresent -eq $randomCheck ];
+then
+empRatePerHr=20;
+empHrs=8;
+salary=$(($empHrs*$empRatePerHr));
+else
+salary=0;
+fi
+echo "$salary"
+-----------------------------------
+result=$((RANDOM%2))
+if [[ ${result} -eq 0 ]];
+then
+echo heads
+elif [[ ${result} -eq 1 ]];
+then
+echo tails
+fi
+---------------------
+read -p "enter g " g
+for (( g=1;g<=7;g++))
+do
+
+
+case $g in
+ 1) echo "its sunday" ;;
+ 2) echo "its manday" ;;
+ 3) echo "its tuesday" ;;
+ 4) echo "its wednesday" ;;
+ 5) echo "its thursday" ;;
+ 6) echo "its friday" ;;
+ 7) echo "its saturday" ;;
+
+esac
+done
+-----------------------------------
+read -p "enter g " g
+case $g in
+ 1) echo "unit" ;;
+ 10) echo "ten" ;;
+ 100) echo "hundred" ;;
+ 1000) echo "thousand" ;;
+
+esac
+------------------------------------------
+read -p "enter power :" n
+for((i=1;i<=$n;i++ ));
+do
+power_of_2=$(( 2/$i ));
+echo " 2 ^ $n : $power_of_2";
+done
+------------------------------------------
+
+for((i=0;i<10;i++))
+do
+arr[$i]=$((RANDOM%900+100))
+echo $((arr[$i]))
+done
+for((i=0;i<10;i++))
+do
+for((j=i+1;j<10;j++))
+do
+if [ $((arr[$i])) -ge $((arr[$j])) ]
+then
+temp=$((arr[$j]))
+arr[$j]=$((arr[$i]))
+arr[$]=$temp
+fi
+done
+done
+echo "sorted array is :"
+for((i=0;i<10;i++))
+do
+echo $((arr[$i]))
+done
+echo "secondsmallest=$((arr[1])) and secondlargest==$((arr[8]))"
+echo "length=${#arr[@]}"
+
+
+---------------------------------------------------------------------------------------
+
+

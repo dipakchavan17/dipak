@@ -1,0 +1,222 @@
+		programs
+sum=0
+
+for ((i=0;i<5;i++))
+do
+ digNum=$((RANDOM%90+10))
+ echo "number" $digNum
+ sum=$((sum+digNum))
+done
+
+echo "sum = " $sum
+
+echo "avg = " $((sum/5))
+-----------------------------------------------------------
+
+read -p "enter the date" d
+read -p "enter the month" m
+read -p "enter the year" y
+echo $d $m $y
+-----------------------------------------------------------
+minVal=1000
+maxVal=0
+
+for ((i=0;i<5;i++))
+do
+ randNum=$((RANDOM%900+100))
+ if [ $randNum -gt $maxVal ]
+  then
+    maxVal=$randNum
+ fi
+
+ if [ $randNum -lt $minVal ]
+   then
+    minVal=$randNum
+ fi
+ echo $randNum "RANDOM NUMBER"
+done
+
+echo "MinVal" $minVal
+echo "MaxVal" $maxVal
+
+--------------------------------------------------------
+read -p "enter the year" y
+
+if [ $((y%100)) -eq 0 ]
+then
+ if [ $((y%400)) -eq 0 ]
+  then
+    echo "${y} is a leap year"
+ else
+    echo "${y} is a not leap year"
+ fi
+else
+ if [ $((y%4)) -eq 0 ]
+  then
+    echo "${y} is a leap year"
+ else
+    echo "${y} is a not leap year"
+  fi
+fi
+
+-----------------------------------------------------------
+read -p "enter g " g
+
+
+case $g in
+ 0) echo "its 0" ;;
+ 1) echo "its one" ;;
+ 4) echo "its fpur" ;;
+ *) echo "none of them matches" ;;
+
+
+esac
+--------------------------------------------------
+startMonth=3
+startingDate=20
+endMonth=6
+endingDate=20
+
+read -p "enter the month : " m
+read -p "enter the date : " d
+
+if [ $m -gt $endMonth -o $m -lt $startMonth ]
+ then
+    echo "false"
+ elif [ $m -eq $startMonth -a $d -lt $startingDate ]
+  then
+    echo "false"
+ elif [ $m -eq $endMonth -a $d -gt $endingDate ]
+  then
+   echo "false"
+ else
+   echo "true"
+
+fi
+---------------------------------------------------------------
+read -p "enter the number : " n
+
+isPrime=1
+
+for ((i=2;i<$n;i++))
+do
+ if [ $((n%i)) -eq 0 ]
+  then
+    isPrime=0
+    break
+ fi
+
+done
+
+
+
+
+if [ $isPrime -eq 1 ]
+then
+ echo "it is prime"
+
+else
+ echo "is NOT prime"
+fi
+
+-------------------------------------------------
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#!/bin/bash
+
+read -p "enter the value of n" n
+
+result=0
+
+for ((i=1;i<=$n;i++))
+do
+reciprocal=`echo $i | awk '{print(1/$1)}'`
+result=`echo $result $reciprocal | awk '{print($1+$2)}'`
+
+
+done
+
+echo $result
+---------------------------------------------------------
+read -p "enter the equation" x
+
+read -p "enter the unit value" n
+
+
+case $x in
+ 1) echo $((n*12)) ;;
+ 2) echo $n | awk '{print $1*0.33}' ;;
+ 3) echo $n | awk '{print $1/12}' ;;
+ 4) echo $n | awk '{print $1/0.33}' ;;
+ *) echo "enter the right value" ;;
+
+esac
+------------------------------------------------
+read -p "enter the number : " n
+isPrime=1
+for ((i=2;i<$n;i++))
+do
+if [ $((n%i)) -eq 0 ]
+then isPrime=0
+break
+fi
+done
+if [ $isPrime -eq 1 ]
+then
+echo "it is prime"
+else
+echo "is not prime"
+fi
+----------------------------------- 
+read -p "enter the value of n" n
+result=0
+for ((i=1;i<=$n;i++))
+do
+reciprocal=` echo $i | awk '{print(1/$1)}'`
+result=` echo $result $reciprocal | awk  '{print($1+$2)}'`
+done
+echo $result
+
+------------------------------------------
+read -p "enter the equation" x
+
+read -p "enter the unit value" n
+
+
+case $x in
+ 1) echo $((n*12)) ;;
+ 2) echo $n | awk '{print $1*0.33}' ;;
+ 3) echo $n | awk '{print $1/12}' ;;
+ 4) echo $n | awk '{print $1/0.33}' ;;
+ *) echo "enter the right value" ;;
+
+esac
+
+---------------------------------------
+startMonth=3
+startingDate=20
+endMonth=6
+endingDate=20
+
+read -p "enter the month : " m
+read -p "enter the date : " d
+
+if [ $m -gt $endMonth -o $m -lt $startMonth ]
+ then
+    echo "false"
+ elif [ $m -eq $startMonth -a $d -lt $startingDate ]
+  then
+    echo "false"
+ elif [ $m -eq $endMonth -a $d -gt $endingDate ]
+  then
+   echo "false"
+ else
+   echo "true"
+
+fi
+---------------------------------------------
+
+
+
+
